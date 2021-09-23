@@ -29,7 +29,7 @@ function App() {
     <th>Locations</th>
   </tr>
   
-  {users.map(value=>{return <tr>
+  {users.filter(value=>value.name.last.includes(userinput)).map(value=>{return <tr>
     <td>{value.name.first}</td>
     <td>{value.name.last}</td>
     <td>{value.email}</td>
