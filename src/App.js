@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import{Table}from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { useState } from "react";
-
+import api from"./utils/API"
 function App() {
   const[users,setusers]=useState([])
+  useEffect(()=>{
+  api.search().then(res=>{
+    console.log (res)
+    setusers(res.data.results)
+  })
+  })
   return (
     <div className="App">
   <Table striped bordered hover>
