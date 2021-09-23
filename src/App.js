@@ -1,19 +1,27 @@
 import { useEffect, useState } from "react";
-import{Table}from "react-bootstrap"
+import{Table,Form}from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import api from"./utils/API"
 function App() {
   const[users,setusers]=useState([])
+  const[userinput,setuserinput]=useState("")
   useEffect(()=>{
   api.search().then(res=>{
     console.log (res)
     setusers(res.data.results)
   })
-  })
+  },[])
   return (
     <div className="App">
-  <Table striped bordered hover>
+      <Form>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Search by last name</Form.Label>
+    <Form.Control value={userinput} onChange={e=>setuserinput(e.target.value)} type="input" placeholder="Enter Cole" />
+    <Form.Text className="text-muted">
+      search user directory
+    </Form.Text>
+    <Table striped bordered hover>
   <tr>
     <th>First</th>
     <th>Last</th>
@@ -28,6 +36,10 @@ function App() {
     <td>{value.location.city}</td>
   </tr>})}
 </Table>
+  </Form.Group>
+  </Form>
+
+  
     </div>
   );
 }
