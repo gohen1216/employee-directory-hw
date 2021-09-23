@@ -1,10 +1,14 @@
-
+import { useState } from "react";
+import{Table}from "react-bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { useState } from "react";
 
 function App() {
+  const[users,setusers]=useState([])
   return (
     <div className="App">
-   <table>
+  <Table striped bordered hover>
   <tr>
     <th>Company</th>
     <th>Contact</th>
@@ -20,7 +24,7 @@ function App() {
     <td>Francisco Chang</td>
     <td>Mexico</td>
   </tr>
-</table>
+</Table>
     </div>
   );
 }
