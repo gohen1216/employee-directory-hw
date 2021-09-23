@@ -15,15 +15,17 @@ function App() {
     <div className="App">
   <Table striped bordered hover>
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>First</th>
+    <th>Last</th>
+    <th>Email</th>
+    <th>Locations</th>
   </tr>
   
   {users.map(value=>{return <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td>{value.name.first}</td>
+    <td>{value.name.last}</td>
+    <td>{value.email}</td>
+    <td>{value.location.city}</td>
   </tr>})}
 </Table>
     </div>
